@@ -471,3 +471,8 @@
 #salario-total h3 {
     text-align: center;
 }
+
+#botaoCalcular {
+    display: flex;
+    justify-content: center;
+}
