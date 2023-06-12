@@ -446,3 +446,28 @@
 .footer .copyright a:hover {
     color: var(--primary);
 }
+
+
+/* CUSTOM CSS */
+
+
+.radio-calculator {
+    margin-right: 10px;
+}
+
+#opcoesInsalubridade {
+    visibility: hidden;
+}
+
+#opcoesInsalubridade h4 {
+    text-align: center;
+}
+
+#conteudoInsalubridade {
+    display: flex;
+    justify-content: space-around;
+}
+
+#salario-total h3 {
+    text-align: center;
+}

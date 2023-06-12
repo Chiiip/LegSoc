@@ -81,3 +81,52 @@
     
 })(jQuery);
 
+let insalubridadeSelected = false;
+let opcaoInsalubridade = 0;
+let periculosidadeSelected = false;
+
+
+function exibirPericulosidade() {
+    insalubridadeSelected = false;
+    opcaoInsalubridade = 0;
+    periculosidadeSelected = true;
+    const divInsalubridade = document.querySelector("#opcoesInsalubridade");
+    divInsalubridade.style.visibility = "hidden";
+
+    const minimo = document.querySelector("#minimo");
+    const medio = document.querySelector("#medio");
+    const maximo = document.querySelector("#maximo");
+    minimo.checked = false;
+    medio.checked = false;
+    maximo.checked = false;
+}
+
+function exibirInsalubridade() {
+    insalubridadeSelected = true;
+    periculosidadeSelected = false;
+    const divInsalubridade = document.querySelector("#opcoesInsalubridade");
+    divInsalubridade.style.visibility = "visible";
+}
+
+function selecionaInsalubridade(valor) {
+    opcaoInsalubridade = valor;
+}
+
+function calcularSalario() {
+    const valorSalario = document.querySelector("#valorSalario").value;
+    const divSalario = document.querySelector("#salario-total");
+    const salarioMinimo = 1320;
+
+    let salarioFinal = Number.parseInt(valorSalario);
+    
+    if (periculosidadeSelected) {
+        salarioFinal = salarioFinal * 1.3;
+    }
+
+    if (insalubridadeSelected) {
+        salarioFinal = salarioFinal + ((opcaoInsalubridade) / 100) * salarioMinimo;
+    }
+
+    divSalario.innerHTML = `<h3>Salário total: R$ ${salarioFinal}</h3>`
+}
+
